@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 component-list" >
+            <app-table *ngIf="selectedComponent=='Table'"></app-table>
+            <app-button *ngIf="selectedComponent=='Button'"></app-button>
+            <app-textbox *ngIf="selectedComponent=='Textbox'"></app-textbox>
+            <app-divider *ngIf="selectedComponent=='Divider'"></app-divider>
+            <app-time *ngIf="selectedComponent=='Time'"></app-time>
+            <app-dropdown *ngIf="selectedComponent=='Dropdown'"></app-dropdown>
+            <app-header *ngIf="selectedComponent=='Header'"></app-header>
+            <app-footer *ngIf="selectedComponent=='Footer'"></app-footer>
+
+        </div>
+        <div class="col-lg-4 component-list">
+            <h3>Drag item from the list!!</h3>
+            <div cdkDropList (cdkDropListDropped)="drop($event)">
+                <div class="content" *ngFor="let component of dragComponentList" cdkDrag>{{component}}</div>
+            </div>
+        </div>
+    </div>
+</div>

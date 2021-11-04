@@ -1,0 +1,19 @@
+<h3>Add Well</h3>
+<form (ngSubmit)="onSubmit()" #wellForm="ngForm">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input #name type="text" class="form-control" id="name" required [(ngModel)]="wellModel.name" name="name">
+    </div>
+    <div class="form-group">
+        <label for="type">Type</label>
+        <select class="form-control" id="type" required [(ngModel)]="wellModel.type" name="type">
+            <option *ngFor="let type of types" [value]="type">{{type}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="sourceKey">SourceKey</label>
+        <span (click)="disableSourceKey=false"><input type="number" required class="form-control" id="sourceKey"
+                [(ngModel)]="wellModel.sourceKey" name="sourceKey" [disabled]="disableSourceKey && sourceKey"></span>
+    </div>
+    <button [disabled]="!wellForm.form.valid" type="submit" class="btn btn-success">Add Well</button>
+</form>

@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>User Details</h3>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+                <tr *ngFor="let user of userList">
+                    <td>{{user?.name}}</td>
+                    <td>{{user.age}}</td>
+                </tr>
+            </table>
+            <hr>
+
+        </div>
+        <div class="col-sm-6">
+        </div>
+    </div>
+    <button (click)="showParagraph=!showParagraph">Toggle</button>
+    <div *ngIf="showParagraph; else elseBlock">If block displayed</div>
+   <ng-template #elseBlock>Else block displayed</ng-template>
+</div>

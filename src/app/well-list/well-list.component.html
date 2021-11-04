@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <app-well [sourceKey]="sourceKey" [date]="date" (wellObj)="addWell($event)"></app-well>
+        </div>
+        <div class="col-sm-6">
+            <h3>Well List</h3>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Source</th>
+                </tr>
+                <tr *ngFor="let well of wellList">
+                    <td>{{well.name}}</td>
+                    <td [ngClass]="well.type == 'ris' ? 'ris' : 'esp'">{{well.type}}</td>
+                    <td (click)="sourceKey=well.sourceKey;onSourceKey()">{{well.sourceKey}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<hr>
